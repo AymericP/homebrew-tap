@@ -1,7 +1,6 @@
 class Rcc < Formula
   desc "Transparent Claude Code hook that compacts code reads to cut token use"
   homepage "https://github.com/AymericP/rcc-ai"
-  version "0.3.0"
   license "Apache-2.0"
 
   on_macos do
