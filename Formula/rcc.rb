@@ -25,13 +25,18 @@ class Rcc < Formula
     bin.install "rcc"
   end
 
+  # Wire up the Claude Code hooks automatically (idempotent; backs up settings first).
+  def post_install
+    system bin/"rcc", "init", "--global"
+  end
+
   def caveats
-    <<~EOS
-      Wire up the Claude Code hooks (writes ~/.claude/settings.json, backed up first):
-        rcc init --global
-      Then restart Claude Code. Watch your savings grow with:
+    <<~CAVEATS
+      rcc is installed and the Claude Code hooks are wired up
+      (~/.claude/settings.json, backed up first). Restart Claude Code,
+      then watch your savings with:
         rcc gain
-    EOS
+    CAVEATS
   end
 
   test do
